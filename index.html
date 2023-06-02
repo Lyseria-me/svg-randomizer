@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>the tool</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  
+  <body>
+    
+    <main>
+      <div class='blur' style="display: none;">
+        <div class='pop'>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name">
+          <button>save</button>
+        </div>
+      </div>
+      
+      <div id='menu'>
+        <ul>
+          <li id='open'><a>Open</a>
+            <ul>
+              <li><a>default</a></li>
+            </ul>
+          </li>
+          <li id='save'><a>Save</a></li>
+          <li id='new'><a>New</a></li>
+          <li id='history'><a>History</a>
+            <ul>
+            </ul>
+          </li>
+        </ul>
+        <div id="saying"></div>
+      </div>
+
+      <div id="down">
+        <div id='content'>
+          <div id='image'>
+            <svg width="200" height="200" id="my-svg">
+              <path d="" fill="#000" stroke="none"/>
+            </svg>
+          </div>
+          <div id='border'></div>
+        </div>
+        
+        <div id='settings'>
+
+          <div id='tabs'>
+            <button style="border-radius: 25px 0 0 0;" class="active">properties</button>
+            <button>generation</button>
+            <button style="border-radius: 0 25px 0 0;">download</button>
+          </div>
+          
+          <div class='panel active'>
+            <div>
+              <label for="width">width: 50%</label>
+              <div class="info-box">
+                <span class="question-mark">?</span>
+                <div class="info-content">
+                  <p>width of the generated image.</p>
+                </div>
+              </div>
+            </div>
+            <input type="range" id="width" name="width" min="1" max="100" value="50">
+            <div>
+              <label for="height">height: 50%</label>
+              <div class="info-box">
+                <span class="question-mark">?</span>
+                <div class="info-content">
+                  <p>height of the generated image.</p>
+                </div>
+              </div>
+            </div>
+            <input type="range" id="height" name="height" min="1" max="100" value="50">
+            
+            <hr style="width:80%;">
+
+            <div>
+              <label for="bg">bg: #848eae</label>
+              <div class="info-box">
+                <span class="question-mark">?</span>
+                <div class="info-content">
+                  <p>color of the image's background.</p>
+                </div>
+              </div>
+            </div>
+            <input type="color" id="bg" name="bg" value="#848eae">
+
+            <div>
+              <label for="color">color: #000000</label>
+              <div class="info-box">
+                <span class="question-mark">?</span>
+                <div class="info-content">
+                  <p>color of the generated image.</p>
+                </div>
+              </div>
+            </div>
+            <input type="color" id="color" name="color" value="#000000">
+            
+            <div>
+              <label for="borderColor">border color: #000000</label>
+              <div class="info-box">
+                <span class="question-mark">?</span>
+                <div class="info-content">
+                  <p>border color of the generated image.</p>
+                </div>
+              </div>
+            </div>
+            <input type="color" id="borderColor" name="borderColor" value="#000000">
+            
+          </div>
+          
+          <div class='panel'>
+            <div>
+              <label for="size_guidance">size guidance: 50%</label>
+              <div class="info-box">
+                <span class="question-mark">?</span>
+                <div class="info-content">
+                  <p>guidance of the size percentage bellow.</p>
+                </div>
+              </div>
+            </div>
+            <input type="range" id="size_guidance" name="size_guidance" min="0" max="100" value="50">
+            <div>
+              <label for="size">size: 10 objects</label>
+              <div class="info-box">
+                <span class="question-mark">?</span>
+                <div class="info-content">
+                  <p>size of the generated image.</p>
+                </div>
+              </div>
+            </div>
+            <input type="range" id="size" name="size" min="1" max="20" value="10">
+            
+            <hr style="width:80%;">
+
+            <div>
+              <button id="randomize_path_order">randomize the path order</button>
+              <div class="info-box">
+                <span class="question-mark">?</span>
+                <div class="info-content">
+                  <p>randomize the order of the links between coordinates of the current generation.</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <button id="optimize_path_order">optimize the path order</button>
+              <div class="info-box">
+                <span class="question-mark">?</span>
+                <div class="info-content">
+                  <p>optimize the order of the links between coordinates of the current generation to make a more complete shape.</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <button id="optimize_path_shape">optimize the path shape</button>
+              <div class="info-box">
+                <span class="question-mark">?</span>
+                <div class="info-content">
+                  <p>optimize the order of the links between coordinates of the current generation to make a randome full shape.</p>
+                </div>
+              </div>
+            </div>
+
+            <hr style="width:80%;">
+
+            <div>
+              <label for="strength_variation">strength of variation: 5</label>
+              <div class="info-box">
+                <span class="question-mark">?</span>
+                <div class="info-content">
+                  <p>strength of the variation bellow.</p>
+                </div>
+              </div>
+            </div>
+            <input type="range" id="strength_variation" name="strength_variation" min="0" max="20" value="5">
+
+            <div>
+              <button id="vary_path_coordinates">vary the path coordinates</button>
+              <div class="info-box">
+                <span class="question-mark">?</span>
+                <div class="info-content">
+                  <p>vary the current coordinates for making variations.</p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class='panel'>
+
+            <div>
+              <button id="copy_html">copy&nbsp;HTML&nbsp;code</button>
+            </div>
+            
+            <div>
+              <button id="copy_svg">copy&nbsp;SVG&nbsp;path</button>
+            </div>
+
+            <hr style="width:80%;">
+            
+            <div>
+              <button id="download">download</button>
+              <label> as </label>
+              
+              <select id="download_as">
+                <option>jpg</option>
+                <option>jpeg</option>
+                <option>gif</option>
+                <option>png</option>
+              </select>
+            </div>
+            
+          </div>
+          
+          <button>generate</button>
+          
+        </div>
+      </div>
+      
+    </main>
+    
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="cursor.js" type="text/javascript"></script>
+    <script src="script.js" type="text/javascript"></script>
+  </body>
+
+</html>
